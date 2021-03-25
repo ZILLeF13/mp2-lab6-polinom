@@ -143,22 +143,26 @@ public:
 	}
 	void InsCurr(T el)
 	{
-		if (pCurr == pStop)
+		if (size==0)
 		{
 			InsLast(el);
+			pPrev = pLast;
+			pCurr = pPrev->pNext;
 		}
 		else
 		{
 			if (pCurr == pFirst)
 			{
-				InsLast(el);
+				InsFirst(el);
+				pPrev = pFirst;
+				pCurr = pPrev->pNext;
 			}
 			else
 			{
 				TLink<T>* t = new TLink<T>;
+				pPrev->pNext = t;
 				t->val = el;
 				t->pNext = pCurr;
-				pPrev->pNext = t;
 				pPrev = t;
 				size++;
 			}
@@ -245,7 +249,7 @@ struct TMonom
 				}
 				else
 					m.input(res[i], 1);
-				flag = 0;
+				//flag = 0;
 			}
 			else
 			{
@@ -336,7 +340,7 @@ bool TMonom:: operator ==(const TMonom& m)const
 }
 TMonom& TMonom:: operator =(const TMonom& m)
 {
-	x = m.x; y = m.y; z = m.z;
+	x = m.x; y = m.y; z = m.z; coeff = m.coeff;
 	return *this;
 }
 TMonom TMonom:: operator *(const TMonom& m)

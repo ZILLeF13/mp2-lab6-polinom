@@ -3,6 +3,24 @@
  int main()
 {
 	 setlocale(LC_ALL, "Russian");
+	 TPolinom p1, p2,res,p1_,p2_;
+	 TMonom m1(2, 3, 4, 1.0), m2(2, 3, 4, 1.0), m3(2, 2, 2, -1.0), m4(2, 2, 2, 1.0);
+	 p1.InsMonom(m1);
+	 p2.InsMonom(m2);
+	 p1.InsMonom(m3);
+	 p2.InsMonom(m4);
+	 p1_ = p1; p2_ = p2;
+	 std::cout << p1 << std::endl;
+	 std::cout << p2 << std::endl;
+	 std::cout << "Сложение" << std::endl;
+	 res = p1 + p2;
+	 std::cout << res << std::endl;
+	 std::cout << "Умножение" << std::endl;
+	 res = p1_ * p2_;
+	 std::cout << res << std::endl;
+	 int t;
+	 std::cin >> t;
+	 /*setlocale(LC_ALL, "Russian");
 	 while (true)
 	 {
 		 std::cout << "Выберите действие: +, +=, *, *= (для выхода нажмите 0):";
@@ -96,5 +114,5 @@
 			 break;
 		 std::cout << std::endl;
 	 }
-	 return 0;
+	 return 0;*/
 }
